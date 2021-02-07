@@ -27,7 +27,7 @@ export const addRiskThree = () => ({
     level: {
         bonds: 60,
         largeCap: 15,
-        midCap: 10,
+        midCap: 15,
         foreign: 10, 
         smallCap: 0
     }

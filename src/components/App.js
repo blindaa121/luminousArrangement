@@ -5,7 +5,7 @@ import DonutChartContainer from './DonutChart/DonutChartContainer';
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello There</h1>
+      <h1>Luminous Arrangement</h1>
       <DonutChartContainer />
     </div>
   );
