@@ -1,6 +1,7 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import './DonutChart.css'
+import InvestmentForm from '../InvestmentForm/InvestmentForm'
 
 class DonutChart extends React.Component {
   constructor(props) {
@@ -49,10 +50,6 @@ class DonutChart extends React.Component {
         ]
       })
     } 
-  }
-  
-  componentDidMount() {
-    
   }
 
   componentDidUpdate(prevProps) {
@@ -103,8 +100,7 @@ class DonutChart extends React.Component {
           </div>
           <Doughnut id='chart-area' data={this.state} options={donutOptions} />
         </div>
-
-        
+        <InvestmentForm selectedLevel={this.props.selectedLevel} />
       </div>
     )
   }
