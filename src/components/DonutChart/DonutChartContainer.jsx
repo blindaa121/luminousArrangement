@@ -1,6 +1,6 @@
 import DonutChart from './DonutChart';
 import { connect } from 'react-redux';
-import * as riskActions from '../../redux/actions'
+import * as riskActions from '../../redux/risk_actions'
 
 const mapStateToProps = (state) => ({
     selectedLevel: state.selectedLevel,
@@ -12,16 +12,16 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    addRiskOne: () => dispatch(riskActions.addRiskOne()),
-    addRiskTwo: () => dispatch(riskActions.addRiskTwo()),
-    addRiskThree: () => dispatch(riskActions.addRiskThree()),
-    addRiskFour: () => dispatch(riskActions.addRiskFour()),
-    addRiskFive: () => dispatch(riskActions.addRiskFive()),
-    addRiskSix: () => dispatch(riskActions.addRiskSix()),
-    addRiskSeven: () => dispatch(riskActions.addRiskSeven()),
-    addRiskEight: () => dispatch(riskActions.addRiskEight()),
-    addRiskNine: () => dispatch(riskActions.addRiskNine()),
-    addRiskTen: () => dispatch(riskActions.addRiskTen()),
+    selectRiskOne: () => dispatch(riskActions.selectRiskOne()),
+    selectRiskTwo: () => dispatch(riskActions.selectRiskTwo()),
+    selectRiskThree: () => dispatch(riskActions.selectRiskThree()),
+    selectRiskFour: () => dispatch(riskActions.selectRiskFour()),
+    selectRiskFive: () => dispatch(riskActions.selectRiskFive()),
+    selectRiskSix: () => dispatch(riskActions.selectRiskSix()),
+    selectRiskSeven: () => dispatch(riskActions.selectRiskSeven()),
+    selectRiskEight: () => dispatch(riskActions.selectRiskEight()),
+    selectRiskNine: () => dispatch(riskActions.selectRiskNine()),
+    selectRiskTen: () => dispatch(riskActions.selectRiskTen()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DonutChart)

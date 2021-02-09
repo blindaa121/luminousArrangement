@@ -48,7 +48,8 @@ class DonutChart extends React.Component {
             data
           }
         ]
-      })
+      });
+      
     } 
   }
 
@@ -86,16 +87,16 @@ class DonutChart extends React.Component {
               <span>High</span>
             </div>
             <div className="button-container">
-              <button onClick={() => this.props.addRiskOne()}>1</button>
-              <button onClick={() => this.props.addRiskTwo()}>2</button>
-              <button onClick={() => this.props.addRiskThree()}>3</button>
-              <button onClick={() => this.props.addRiskFour()}>4</button>
-              <button onClick={() => this.props.addRiskFive()}>5</button>
-              <button onClick={() => this.props.addRiskSix()}>6</button>
-              <button onClick={() => this.props.addRiskSeven()}>7</button>
-              <button onClick={() => this.props.addRiskEight()}>8</button>
-              <button onClick={() => this.props.addRiskNine()}>9</button>
-              <button onClick={() => this.props.addRiskTen()}>10</button>
+              <button onClick={() => this.props.selectRiskOne()}>1</button>
+              <button onClick={() => this.props.selectRiskTwo()}>2</button>
+              <button onClick={() => this.props.selectRiskThree()}>3</button>
+              <button onClick={() => this.props.selectRiskFour()}>4</button>
+              <button onClick={() => this.props.selectRiskFive()}>5</button>
+              <button onClick={() => this.props.selectRiskSix()}>6</button>
+              <button onClick={() => this.props.selectRiskSeven()}>7</button>
+              <button onClick={() => this.props.selectRiskEight()}>8</button>
+              <button onClick={() => this.props.selectRiskNine()}>9</button>
+              <button onClick={() => this.props.selectRiskTen()}>10</button>
             </div>
           </div>
           <Doughnut id='chart-area' data={this.state} options={donutOptions} />

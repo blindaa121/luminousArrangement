@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App.js';
 import Root from './components/Root.jsx';
 import { createStore, applyMiddleware } from 'redux';
-import reducer from './redux/reducer';
-import { addRiskOne } from './redux/actions';
+import riskReducer from './redux/risk_reducer';
+import { selectRiskOne, selectAllRisks } from './redux/risk_actions';
 import { logger } from 'redux-logger'
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const rootEl = document.getElementById('root');
-  const store = createStore(reducer, applyMiddleware(logger));
+  const store = createStore(riskReducer, applyMiddleware(logger));
   window.store = store;
-  window.addRiskOne = addRiskOne;
+  window.selectRiskOne = selectRiskOne;
+  window.selectAllRisks = selectAllRisks
   ReactDOM.render(<Root store={store}/>, rootEl)
 })
 
