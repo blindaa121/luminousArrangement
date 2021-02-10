@@ -4,7 +4,88 @@
     align-items: center;
 }
 
+.selection-risk {
+    background-color: #212125;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    padding: 50px;
+    border-radius: 20px;
+    border-top: 1px solid #70CBFF;
+    margin-bottom: 50px;
+}
+
 .selection-container > h1 {
     font-size: 30px;
-    color: #F8D525
+    text-transform: uppercase;
+    color: #70CBFF;
+    padding: 50px;
+    margin: 50px 0 50px 0;
+    background-color: white;
+    width: 100%;
+    border-top: 1px solid #70CBFF;
+    border-bottom: 1px solid #70CBFF;
+    text-align: center;
+    transition: .2s ease-in;
+}
+
+.selection-container > h1:hover {
+    border-top: 5px solid #70CBFF;
+    border-bottom: 5px solid #70CBFF;
+}
+
+.button-container {
+    display: flex;
+    width: 100%
+}
+
+.button-container button {
+    width: 75px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Baloo 2', cursive;
+    border-radius: 2em;
+    background: #70CBFF;
+    border: none;
+    color: white;
+    opacity: 60%;
+    transition: all 0.5s;
+}
+
+.button-container button:hover {
+    cursor: pointer;
+    border: 3px solid white;
+    opacity: 100%;
+}
+
+.button-container button:focus {
+    outline: none;
+    opacity: 100%;
+    border: 3px solid white;
+}
+
+.button-container button:not(:last-child) {
+    margin-right: 30px;
+}
+
+.selection-risk-level {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+#low-risk {
+    color: #70CBFF;
+    margin-bottom: 0
+}
+
+#high-risk {
+    color: lightcoral;
+    margin-bottom: 0
+}
+
+.gradient-border {
+    height: 2px;
+    margin-bottom: 10px;
+    background: rgb(112,203,255);
+    background: linear-gradient(90deg, rgba(112,203,255,1) 0%, rgba(62,178,247,1) 17%, rgba(132,114,158,1) 41%, rgba(184,66,91,1) 67%, rgba(214,38,52,1) 84%, rgba(255,0,0,1) 100%);
 }

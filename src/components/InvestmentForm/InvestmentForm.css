@@ -4,7 +4,72 @@
     align-items: center;
 }
 
+.investment-form-container > h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #70CBFF;
+    padding: 50px;
+    margin: 50px 0 50px 0;
+    background-color: white;
+    width: 100%;
+    border-top: 1px solid #70CBFF;
+    border-bottom: 1px solid #70CBFF;
+    text-align: center;
+    transition: .2s ease-in;
+}
+
+.investment-form-container > h1:hover {
+    border-top: 5px solid #70CBFF;
+    border-bottom: 5px solid #70CBFF;
+}
+
 .investment-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    width: 50%;
+    height: 430px;
+}
+
+.current-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #212125;
+    border-top: 0.75px solid #70CBFF;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    padding: 40px;
+    height: 70px;
+    /* opacity: 60%; */
+}
+
+#current-percentage {
+   display: flex;
+   flex-direction: column;
+   opacity: 60%;
+   transition: .5s
+}
+
+#current-percentage:hover {
+    opacity: 100%
+}
+
+#current-percentage > p {
+    font-size: 35px;
+    color:#e6e3e9;
+    margin:0;
+    padding:0;
+}
+
+#current-percentage > h1 {
+    color: #70CBFF;
+    margin: 0;
+    padding: 0;
+}
+
+#current-percentage:not(:last-child) {
+    margin-right: 50px;
 }

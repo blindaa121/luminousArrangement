@@ -4,6 +4,7 @@ import * as riskActions from '../../redux/risk_actions'
 
 const mapStateToProps = (state) => ({
     selectedLevel: state.selectedLevel,
+    level: state.selectedLevel.level,
     bondPercentage: state.selectedLevel.bonds,
     largeCapPercentage: state.selectedLevel.largeCap,
     midCapPercentage: state.selectedLevel.midCap,

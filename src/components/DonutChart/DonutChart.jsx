@@ -83,9 +83,10 @@ class DonutChart extends React.Component {
           <h1>Please select a risk level for your investment portfolio</h1>
           <div className="selection-risk">
             <div className="selection-risk-level">
-              <span>Low</span>
-              <span>High</span>
+              <span id="low-risk">Low</span>
+              <span id="high-risk">High</span>
             </div>
+            <div className="gradient-border"></div>
             <div className="button-container">
               <button onClick={() => this.props.selectRiskOne()}>1</button>
               <button onClick={() => this.props.selectRiskTwo()}>2</button>

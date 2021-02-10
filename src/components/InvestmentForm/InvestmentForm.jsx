@@ -5,11 +5,11 @@ class InvestmentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bonds: '',
-            largeCap: '',
-            midCap: '',
-            smallCap: '',
-            foreign: ''
+            bonds: 0,
+            largeCap: 0,
+            midCap: 0,
+            smallCap: 0,
+            foreign: 0
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,12 +29,48 @@ class InvestmentForm extends React.Component {
 
     renderSelectedLevel() {
         if (!this.props.selectedLevel) return null;
-        const {bonds, largeCap, midCap, smallCap, foreign} = this.props.selectedLevel;
+        const {level, bonds, largeCap, midCap, smallCap, foreign} = this.props.selectedLevel;
+        
         return (
-            <div>
-                {bonds}{largeCap}{midCap}{smallCap}{foreign}
+            <div className="current-selection">
+                <div id="current-percentage">
+                    <h1>Level</h1>
+                    <p>{level ? level : 'Select a Risk Level'}</p>
+                </div>
+                <div id="current-percentage">
+                    <h1>Bonds</h1>
+                    <p>{bonds ? bonds : 0}%</p>
+                </div>
+                <div id="current-percentage">
+                    <h1>Large Cap</h1>
+                    <p>{largeCap ? largeCap : 0}%</p>
+                </div>
+                <div id="current-percentage">
+                    <h1>Mid Cap</h1>
+                    <p>{midCap ? midCap : 0}%</p>
+                </div>
+                <div id="current-percentage">
+                    <h1>Small Cap</h1>
+                    <p>{smallCap ? smallCap : 0}%</p>
+                </div>
+                <div id="current-percentage">
+                    <h1>Foreign</h1>
+                    <p>{foreign ? foreign : 0}%</p>
+                </div>
             </div>
         )
+    }
+
+    calculateDifferences() {
+
+    }
+
+    renderOptimizedAmount() {
+
+    }
+
+    renderDifferences() {
+
     }
 
     render() {
