@@ -1,10 +1,11 @@
 
-    function calculateOptimizedAmount(userInput, riskPercentages) {
+    export function calculateOptimizedAmount(userInput, riskPercentages) {
         // arr1 = user input
         // arr2 = risk percentages
         const optimizedAmounts = [];
-        const length = userInput.length;
-        const total = userInput.reduce((a, b) => a + b);
+        const inputValues = Object.values(userInput).map(num => Number(num))
+        const length = inputValues.length;
+        const total = inputValues.reduce((a, b) => a + b);
 
         for (let i = 0; i < length; i++) {
             const percentage = (riskPercentages[i] / 100).toFixed(2);
@@ -12,10 +13,12 @@
             optimizedAmounts.push(optimizedVal)
         }
         
-        calculateDifferences(userInput, optimizedAmounts)
+        const moneyDifferences = calculateDifferences(inputValues, optimizedAmounts);
+        console.log(optimizedAmounts)
+        return calculateAllocations(moneyDifferences);
     }
 
-    function calculateDifferences(userInput, optimizedAmounts) {
+    export function calculateDifferences(userInput, optimizedAmounts) {
         // arr1 will be selected risk percentages 
         // arr2 will be the user input in dollar amount 
         // output differences 
@@ -44,11 +47,11 @@
                     categoryAmounts['Foreign'] = diff;
             }
         }
-
-        calculateAllocations(categoryAmounts)
+        console.log(categoryAmounts);
+        return categoryAmounts;
     }
 
-    function calculateAllocations(obj) {
+    export function calculateAllocations(obj) {
         console.log(obj, 'coming from calculateAllocations');
         const needsMoney = {};
         const givesMoney = {};
@@ -69,7 +72,6 @@
         let i = 0;
         let j = 0;
         while (i < giveCategories.length) {
-            debugger
             while (j < needCategories.length) {
                 needsMoney[needCategories[j]] = Math.abs(needsMoney[needCategories[j]]).toFixed(2);
                 if (givesMoney[giveCategories[i]] <= needsMoney[needCategories[j]]) {
@@ -84,7 +86,7 @@
                 }
             }
         }
-
+   
         return output
     }
 

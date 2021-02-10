@@ -1,5 +1,5 @@
 import React from 'react';
-import { RECEIVE_LEVEL, RECEIVE_LEVELS } from './risk_actions'
+import { RECEIVE_LEVEL, RECEIVE_LEVELS } from '../actions/risk_actions'
 
 const _defaultState = {
     selectedLevel: {},
@@ -9,7 +9,7 @@ const _defaultState = {
 const riskReducer = (oldState = _defaultState, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
-    console.log(nextState)
+
     switch (action.type) {
         case RECEIVE_LEVEL:
             nextState.selectedLevel = action.level;

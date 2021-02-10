@@ -38,10 +38,12 @@
     padding: 20px;
     height: 250px;
     transition: .4s all;
+    opacity: 60%;
 }
 
 .investment-form:hover {
-    border: 3px solid #70CBFF
+    border: 3px solid #70CBFF;
+    opacity: 100%;
 }
 
 .investment-form > h1 {
@@ -105,7 +107,7 @@ input[type=text]:focus {
 
 #submit-btn:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: #99C24D;
     color: black;
 }
 

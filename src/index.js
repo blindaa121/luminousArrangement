@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Root from './components/Root.jsx';
 import { createStore, applyMiddleware } from 'redux';
-import riskReducer from './redux/risk_reducer';
-import { selectRiskOne, selectAllRisks } from './redux/risk_actions';
+import rootReducer from './redux/reducers/index'
+import { selectRiskOne, selectAllRisks } from './redux/actions/risk_actions';
 import { logger } from 'redux-logger'
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const rootEl = document.getElementById('root');
-  const store = createStore(riskReducer, applyMiddleware(logger));
+  const store = createStore(rootReducer, applyMiddleware(logger));
   window.store = store;
   window.selectRiskOne = selectRiskOne;
   window.selectAllRisks = selectAllRisks

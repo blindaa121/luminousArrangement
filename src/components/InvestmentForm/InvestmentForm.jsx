@@ -1,5 +1,6 @@
 import React from 'react';
 import './InvestmentForm.css'
+import * as moneyAlgorithm from '../../AllocationAlgorithm'
 
 class InvestmentForm extends React.Component {
     constructor(props) {
@@ -14,17 +15,60 @@ class InvestmentForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateField = this.updateField.bind(this);
+        this.getRecommendedAmount = this.getRecommendedAmount.bind(this);
+    }
+
+    componentDidMount() {
+        console.log(this.props, 'props from investment form')
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props)
+        const {bonds, largeCap, midCap, smallCap, foreign} = this.props.selectedLevel;
+        const riskPercentages = [bonds, largeCap, midCap, smallCap, foreign];
+        const recommendedAmount = this.getRecommendedAmount(this.state, riskPercentages);
+        const messages = moneyAlgorithm.calculateOptimizedAmount(this.state, riskPercentages);
+        const recommendationObj = {
+            bonds: {ogAmount: this.state.bonds, recAmount: recommendedAmount.bonds},
+            largeCap: {ogAmount: this.state.largeCap, recAmount: recommendedAmount.largeCap},
+            midCap: {ogAmount: this.state.midCap, recAmount: recommendedAmount.midCap},
+            smallCap: {ogAmount: this.state.smallCap, recAmount: recommendedAmount.smallCap},
+            foreign: {ogAmount: this.state.foreign, recAmount: recommendedAmount.foreign}
+        }
+        this.props.receiveRecommendation(recommendationObj);
+        this.props.receiveMessages(messages)
     }
 
     updateField(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         });
+    }
+
+    getRecommendedAmount(originalAmount, riskPercentages) {
+        const optimizedAmounts = { };
+        const inputValues = Object.values(originalAmount).map(num => Number(num))
+        const length = inputValues.length;
+        const total = inputValues.reduce((a, b) => a + b);
+
+        for (let i = 0; i < length; i++) {
+            const percentage = (riskPercentages[i] / 100).toFixed(2);
+            const optimizedVal = (total * percentage).toFixed(2);
+            switch (i) {
+                case 0:
+                    optimizedAmounts['bonds'] = optimizedVal;
+                case 1:
+                    optimizedAmounts['largeCap'] = optimizedVal;
+                case 2:
+                    optimizedAmounts['midCap'] = optimizedVal;
+                case 3:
+                    optimizedAmounts['smallCap'] = optimizedVal;
+                case 4:
+                    optimizedAmounts['foreign'] = optimizedVal;
+            }
+        }
+
+        return optimizedAmounts;
     }
 
     renderSelectedLevel() {
@@ -59,18 +103,6 @@ class InvestmentForm extends React.Component {
                 </div>
             </div>
         )
-    }
-
-    calculateDifferences() {
-
-    }
-
-    renderOptimizedAmount() {
-
-    }
-
-    renderDifferences() {
-
     }
 
     render() {
@@ -143,6 +175,7 @@ class InvestmentForm extends React.Component {
                     </div>
                     <input id="submit-btn" type="submit" value="SUBMIT"/>
                 </form>
+                {/* <RecommendedPortfolio allocationMessages={}/> */}
             </div>
         )
     }
