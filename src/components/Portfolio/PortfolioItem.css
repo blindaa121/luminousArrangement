@@ -1,0 +1,55 @@
+.info-cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    height: 410px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #212125;
+    border-radius: 20px;
+    width: 200px;
+    height: 300px;
+    border-top: 1px solid #70CBFF;
+    padding: 15px;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    transition: .4s all;
+}
+
+.portfolio-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+#bonds {
+  background-color: #F8D525;
+}
+
+#mid-cap {
+  background-color: #59A5D8;
+}
+
+#large-cap {
+  background-color: #386FA4;
+}
+
+#small-cap {
+  background-color: #133C55;
+}
+
+#foreign {
+  background-color: #84D2F6;
+}
+
+#item-current > p{
+  font-size: 15px;
+  margin: 0;
+}
+
+#item-recommended > p {
+  font-size: 15px;
+  margin: 0
+}

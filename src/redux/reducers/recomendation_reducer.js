@@ -1,14 +1,6 @@
 import {RECEIVE_RECOMMENDATION} from '../actions/recommendation_actions';
 
-const _defaultState = {
-    bonds: {},
-    largeCap: {},
-    midCap: {},
-    smallCap: {},
-    foreign: {}
-}
-
-const recommendationReducer = (oldState = _defaultState, action) => {
+const recommendationReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_RECOMMENDATION:

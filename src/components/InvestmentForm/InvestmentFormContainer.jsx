@@ -3,10 +3,13 @@ import { receiveMessages } from '../../redux/actions/allocation_messages_actions
 import { connect } from 'react-redux';
 import InvestmentForm from './InvestmentForm';
 
-const mapStateToProps = (state) => ({
-    recommendations: state.recommendations,
-    allocationMessages: state.allocationMessages
-})
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        recommendation: Object.values(state.recommendation),
+        allocationMessages: state.messages
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     receiveRecommendation: (recommendation) => dispatch(receiveRecommendation(recommendation)),
