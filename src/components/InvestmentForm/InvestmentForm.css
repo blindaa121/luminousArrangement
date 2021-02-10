@@ -26,10 +26,87 @@
 .investment-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
+    background-color: #212125;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    border-top: 1px solid #70CBFF;
+    border-radius: 20px;
+    justify-content: space-between;
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 50%;
-    height: 430px;
+    padding: 20px;
+    height: 250px;
+    transition: .4s all;
+}
+
+.investment-form:hover {
+    border: 3px solid #70CBFF
+}
+
+.investment-form > h1 {
+    text-transform: uppercase;
+    color: #e6e3e9;
+    margin-bottom: 0;
+}
+
+.investment-form-title {
+    color: #70CBFF;
+    font-size: 30px;
+}
+
+.investment-input {
+    display: flex;
+}
+
+.investment-input-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.investment-input-content:not(:last-child) {
+    margin-right: 30px;
+}
+
+input[type=text] {
+    background: none;
+    text-align: center;
+    font-size: 25px;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid lightcyan;
+    width: 80px;
+    color: lightgreen;
+    padding: 5px;
+}
+
+input[type=text]:hover {
+    cursor: pointer;
+}
+
+input[type=text]:focus {
+    cursor: default;
+    outline: none;
+}
+
+#submit-btn {
+    width: 120px;
+    height: 40px;
+    margin-top: 15px;
+    font-size: 18px;
+    background: none;
+    border-radius: 2em;
+    color: white;
+    border: 2px solid white;
+    transition: .4s;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+    color: black;
 }
 
 .current-selection {

@@ -5,11 +5,11 @@ class InvestmentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bonds: 0,
-            largeCap: 0,
-            midCap: 0,
-            smallCap: 0,
-            foreign: 0
+            bonds: '',
+            largeCap: '',
+            midCap: '',
+            smallCap: '',
+            foreign: ''
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,38 +79,69 @@ class InvestmentForm extends React.Component {
                 <h1>How would you like to allocate your money?</h1>
                 {this.renderSelectedLevel()}
                 <form onSubmit={this.handleSubmit} className="investment-form">
-                    <label className="investment-form-title">Bonds
-                        <input
-                            type="text"
-                            onChange={this.updateField('bonds')}
-                            value={this.state.bonds}
-                        />
-                    </label>
-                    <label className="investment-form-title">Large Cap
-                        <input
-                            type="text"
-                            onChange={this.updateField('largeCap')}
-                            value={this.state.largeCap}/>
-                    </label>
-                    <label className="investment-form-title">Mid Cap
-                        <input
-                            type="text"
-                            onChange={this.updateField('midCap')}
-                            value={this.state.midCap}/>
-                    </label>
-                    <label className="investment-form-title">Small Cap
-                        <input
-                            type="text"
-                            onChange={this.updateField('smallCap')}
-                            value={this.state.smallCap}/>
-                    </label>
-                    <label className="investment-form-title">Foreign
-                        <input
-                            type="text"
-                            onChange={this.updateField('foreign')}
-                            value={this.state.foreign}/>
-                    </label>
-                    <input type="submit" value="SUBMIT"/>
+                    <h1>Please enter amount for each category</h1>
+                    <div className="investment-input">
+                        <div className="investment-input-content">
+                            <label className="investment-form-title">Bonds
+                            <br/>
+                                <input
+                                    type="text"
+                                    onChange={this.updateField('bonds')}
+                                    value={this.state.bonds}
+                                    placeholder="0"
+                                />
+                            </label>
+                        </div>
+                        <div className="investment-input-content">
+                            <label className="investment-form-title">Large Cap
+                            <br/>
+                                <input
+                                    type="text"
+                                    onChange={this.updateField('largeCap')}
+                                    value={this.state.largeCap}
+                                    placeholder="0"
+                                    
+                                    />
+                            </label>
+                        </div>
+                        <div className="investment-input-content">
+                            <label className="investment-form-title">Mid Cap
+                            <br/>
+                                <input
+                                    type="text"
+                                    onChange={this.updateField('midCap')}
+                                    value={this.state.midCap}
+                                    placeholder="0"
+                                    
+                                    />
+                            </label>
+                        </div>
+                        <div className="investment-input-content">
+                            <label className="investment-form-title">Small Cap
+                            <br/>
+                                <input
+                                    type="text"
+                                    onChange={this.updateField('smallCap')}
+                                    value={this.state.smallCap}
+                                    placeholder="0"
+                                    
+                                    />
+                            </label>
+                        </div>
+                        <div className="investment-input-content">
+                            <label className="investment-form-title">Foreign
+                            <br/>
+                                <input
+                                    type="text"
+                                    onChange={this.updateField('foreign')}
+                                    value={this.state.foreign}
+                                    placeholder="0"
+                          
+                                    />
+                            </label>
+                        </div>
+                    </div>
+                    <input id="submit-btn" type="submit" value="SUBMIT"/>
                 </form>
             </div>
         )
