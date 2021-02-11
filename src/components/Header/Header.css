@@ -20,9 +20,15 @@
   width: 300px;
   display: flex;
   color: black;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .header-icon {
   color: black;
+  opacity: 60%;
+  transition: .4s;
+}
+
+.header-icon:hover {
+  opacity: 100%;
 }

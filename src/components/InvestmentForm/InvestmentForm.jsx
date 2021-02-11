@@ -74,15 +74,15 @@ class InvestmentForm extends React.Component {
       const optimizedVal = (total * percentage).toFixed(2);
       switch (i) {
         case 0:
-            optimizedAmounts['bonds'] = optimizedVal;
+          optimizedAmounts['bonds'] = optimizedVal;
         case 1:
-            optimizedAmounts['largeCap'] = optimizedVal;
+          optimizedAmounts['largeCap'] = optimizedVal;
         case 2:
-            optimizedAmounts['midCap'] = optimizedVal;
+          optimizedAmounts['midCap'] = optimizedVal;
         case 3:
-            optimizedAmounts['smallCap'] = optimizedVal;
+          optimizedAmounts['smallCap'] = optimizedVal;
         case 4:
-            optimizedAmounts['foreign'] = optimizedVal;
+          optimizedAmounts['foreign'] = optimizedVal;
       }
     }
 
@@ -94,32 +94,32 @@ class InvestmentForm extends React.Component {
     const { level, bonds, largeCap, midCap, smallCap, foreign } = this.props.selectedLevel;
       
     return (
-        <div className="current-selection">
-            <div id="current-percentage">
-                <h1>Level</h1>
-                <p>{level ? level : 'Select a Risk Level'}</p>
-            </div>
-            <div id="current-percentage">
-                <h1>Bonds</h1>
-                <p>{bonds ? bonds : 0}%</p>
-            </div>
-            <div id="current-percentage">
-                <h1>Large Cap</h1>
-                <p>{largeCap ? largeCap : 0}%</p>
-            </div>
-            <div id="current-percentage">
-                <h1>Mid Cap</h1>
-                <p>{midCap ? midCap : 0}%</p>
-            </div>
-            <div id="current-percentage">
-                <h1>Small Cap</h1>
-                <p>{smallCap ? smallCap : 0}%</p>
-            </div>
-            <div id="current-percentage">
-                <h1>Foreign</h1>
-                <p>{foreign ? foreign : 0}%</p>
-            </div>
+      <div className="current-selection">
+        <div id="current-percentage">
+          <h1>Level</h1>
+          <p>{level ? level : 'Select a Risk Level'}</p>
         </div>
+        <div id="current-percentage">
+          <h1>Bonds</h1>
+          <p>{bonds ? bonds : 0}%</p>
+        </div>
+        <div id="current-percentage">
+          <h1>Large Cap</h1>
+          <p>{largeCap ? largeCap : 0}%</p>
+        </div>
+        <div id="current-percentage">
+          <h1>Mid Cap</h1>
+          <p>{midCap ? midCap : 0}%</p>
+        </div>
+        <div id="current-percentage">
+          <h1>Small Cap</h1>
+          <p>{smallCap ? smallCap : 0}%</p>
+        </div>
+        <div id="current-percentage">
+          <h1>Foreign</h1>
+          <p>{foreign ? foreign : 0}%</p>
+        </div>
+      </div>
     )
   }
 
@@ -143,6 +143,15 @@ class InvestmentForm extends React.Component {
     } else {
       return 'Here is your recommended portfolio'
     }
+  }
+
+  scrollDown() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 2600,
+        behavior: 'smooth'
+      });
+    }, 1000);
   }
 
   render() {
@@ -209,7 +218,7 @@ class InvestmentForm extends React.Component {
               </label>
             </div>
           </div>
-          <input id="submit-btn" type="submit" value="SUBMIT"/>
+          <input onClick={() => this.scrollDown()} id="submit-btn" type="submit" value="SUBMIT"/>
         </form>
         <h1 className="portfolio-header">{this.renderPortfolioHeader()}</h1>
         {this.renderPortfolio()}

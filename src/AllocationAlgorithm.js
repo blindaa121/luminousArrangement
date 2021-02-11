@@ -64,7 +64,6 @@ function calculateAllocations(obj) {
 
   while (i < give.length) {
     while (j < need.length) {
-      debugger
       needsMoney[need[j]] = Math.abs(needsMoney[need[j]]).toFixed(2);
 
       if (Number(givesMoney[give[i]]) <= Number(needsMoney[need[j]])) {

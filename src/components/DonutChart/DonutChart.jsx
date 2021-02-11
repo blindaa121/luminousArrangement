@@ -10,7 +10,6 @@ class DonutChart extends React.Component {
       labels: ['Bonds', 'Large Cap', 'Mid Cap', 'Foreign', 'Small Cap'],
       datasets: [
         {
-          label: 'Rainfall',
           backgroundColor: ['#F8D525', '#386FA4', '#59A5D8', '#84D2F6', '#133C55'],
           hoverBackgroundColor: ['#DAB707', '#184563', '#24496A', '#2B7EB6', '#184563'],
           data: [80,20,0,0,0]
@@ -42,7 +41,6 @@ class DonutChart extends React.Component {
       this.setState({
         datasets: [
           {
-            label: 'Rainfall',
             backgroundColor: bgColor,
             hoverBackgroundColor: hoverColor,
             data
@@ -63,18 +61,25 @@ class DonutChart extends React.Component {
     const donutOptions = {
       title: {
         display: true,
-        text: 'Investment Portfolio',
         fontSize: 20
       },
       legend: {
         display: true,
-        position: 'top'
+        position: 'bottom'
       },
       animation: {
         animateScale: true,
       },
       tooltips: {
-        titleFontSize: 30
+        bodyFontSize: 20,
+      },
+      plugins: {
+        datalabels: {
+          color: '#fff',
+          anchor: 'end',
+          align: 'start',
+          offset:-10
+        }
       }
     }
     return(
@@ -100,7 +105,7 @@ class DonutChart extends React.Component {
               <button onClick={() => this.props.selectRiskTen()}>10</button>
             </div>
           </div>
-          <Doughnut id='chart-area' data={this.state} options={donutOptions} />
+          <Doughnut className="donut-chart" data={this.state} options={donutOptions} />
         </div>
         <InvestmentFormContainer selectedLevel={this.props.selectedLevel} />
       </div>

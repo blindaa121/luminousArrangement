@@ -47,6 +47,7 @@
 }
 
 .investment-form > h1 {
+    font-size: 25px;
     text-transform: uppercase;
     color: #e6e3e9;
     margin-bottom: 0;
@@ -54,7 +55,7 @@
 
 .investment-form-title {
     color: #70CBFF;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .investment-input {
@@ -111,6 +112,10 @@ input[type=text]:focus {
     color: black;
 }
 
+#submit-btn:focus {
+    outline: none;
+}
+
 .current-selection {
     display: flex;
     align-items: center;
@@ -136,13 +141,14 @@ input[type=text]:focus {
 }
 
 #current-percentage > p {
-    font-size: 35px;
+    font-size: 25px;
     color:#e6e3e9;
     margin:0;
     padding:0;
 }
 
 #current-percentage > h1 {
+    font-size: 20px;
     color: #70CBFF;
     margin: 0;
     padding: 0;
