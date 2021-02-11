@@ -39,8 +39,7 @@ function calculateDifferences(userInput, optimizedAmounts) {
         categoryAmounts['Foreign'] = diff
     }
   }
-  console.log(optimizedAmounts)
-  console.log(categoryAmounts)
+
   return categoryAmounts;
 }
 

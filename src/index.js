@@ -11,9 +11,6 @@ import { logger } from 'redux-logger'
 document.addEventListener("DOMContentLoaded", () => {
   const rootEl = document.getElementById('root');
   const store = createStore(rootReducer, applyMiddleware(logger));
-  window.store = store;
-  window.selectRiskOne = selectRiskOne;
-  window.selectAllRisks = selectAllRisks
   ReactDOM.render(<Root store={store}/>, rootEl)
 })
 

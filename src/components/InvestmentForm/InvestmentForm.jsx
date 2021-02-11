@@ -48,7 +48,7 @@ class InvestmentForm extends React.Component {
           recAmount: recommendedAmount.smallCap
       },  
       foreign: {
-          type: 'Foriegn', 
+          type: 'Foreign', 
           ogAmount: this.state.foreign, 
           recAmount: recommendedAmount.foreign
       }
@@ -160,7 +160,7 @@ class InvestmentForm extends React.Component {
         <h1>How would you like to allocate your money?</h1>
           {this.renderSelectedLevel()}
         <form onSubmit={this.handleSubmit} className="investment-form">
-          <h1>Please enter amount for each category</h1>
+          <h1>Please enter dollar amount for each category</h1>
           <div className="investment-input">
             <div className="investment-input-content">
               <label className="investment-form-title">Bonds
@@ -169,7 +169,7 @@ class InvestmentForm extends React.Component {
                   type="text"
                   onChange={this.updateField('bonds')}
                   value={this.state.bonds}
-                  placeholder="0"
+                  placeholder="$0"
                 />
               </label>
             </div>
@@ -180,7 +180,7 @@ class InvestmentForm extends React.Component {
                   type="text"
                   onChange={this.updateField('largeCap')}
                   value={this.state.largeCap}
-                  placeholder="0"
+                  placeholder="$0"
                 />
               </label>
             </div>
@@ -191,7 +191,7 @@ class InvestmentForm extends React.Component {
                   type="text"
                   onChange={this.updateField('midCap')}
                   value={this.state.midCap}
-                  placeholder="0"
+                  placeholder="$0"
                   />
               </label>
             </div>
@@ -202,7 +202,7 @@ class InvestmentForm extends React.Component {
                   type="text"
                   onChange={this.updateField('smallCap')}
                   value={this.state.smallCap}
-                  placeholder="0"
+                  placeholder="$0"
                   />
               </label>
             </div>
@@ -213,7 +213,7 @@ class InvestmentForm extends React.Component {
                   type="text"
                   onChange={this.updateField('foreign')}
                   value={this.state.foreign}
-                  placeholder="0"
+                  placeholder="$0"
                   />
               </label>
             </div>
