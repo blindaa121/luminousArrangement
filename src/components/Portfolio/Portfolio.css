@@ -1,3 +1,69 @@
 .portfolio-items-container {
   display: flex;
+  margin-bottom: 70px;
+}
+
+.portfolio-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.messages-header {
+  text-align: center;
+  color: #e6e3e9;
+}
+
+.message-content {
+  display: flex;
+  width: 55%;
+  align-items: center;
+}
+
+.avatar-img {
+  height: 80px;
+  border-radius: 50%;
+  background: antiquewhite;
+  border: 3px solid lightcoral
+}
+
+.speech-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #212125;
+  font-size: 20px;
+  color: #e6e3e9;
+  /* border-radius: .4em; */
+  border-right: 3px solid lightgreen;
+  box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+  transition: .4s all;
+  opacity: 65%;
+  height: 100px;
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.speech-bubble:after {
+	content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 29px solid transparent;
+    border-right-color: #212125;
+    border-left: 0;
+    border-top: 0;
+    margin-top: -14.5px;
+    margin-left: -29px;
+}
+
+.speech-bubble:hover {
+  opacity: 100%;
 }

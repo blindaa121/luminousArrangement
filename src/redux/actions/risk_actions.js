@@ -127,10 +127,10 @@ export const selectRiskFour = () => ({
     type: RECEIVE_LEVEL,
     level: {
         level: 4,
-        bonds: 80,
+        bonds: 50,
         largeCap: 20,
-        midCap: 0,
-        foreign: 0, 
+        midCap: 20,
+        foreign: 10, 
         smallCap: 0
     }
 })

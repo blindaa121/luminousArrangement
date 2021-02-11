@@ -128,12 +128,20 @@ class InvestmentForm extends React.Component {
       return null
     } else {
       return (
-        <div>
+        <div className="portfolio-container">
           <Portfolio 
             allocationMessages={this.props.allocationMessages}
             recommendation={this.props.recommendation}/>
-        </div>
+        </div> 
       )
+    }
+  }
+
+  renderPortfolioHeader() {
+    if (!this.props.recommendation.length) {
+      return 'Your recommended portfolio awaits!'
+    } else {
+      return 'Here is your recommended portfolio'
     }
   }
 
@@ -203,6 +211,7 @@ class InvestmentForm extends React.Component {
           </div>
           <input id="submit-btn" type="submit" value="SUBMIT"/>
         </form>
+        <h1 className="portfolio-header">{this.renderPortfolioHeader()}</h1>
         {this.renderPortfolio()}
       </div>
     )

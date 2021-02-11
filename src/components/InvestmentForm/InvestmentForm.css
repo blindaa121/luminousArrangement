@@ -6,6 +6,7 @@
 
 .investment-form-container > h1 {
     font-size: 30px;
+    font-family: 'Mukta', sans-serif;
     text-transform: uppercase;
     color: #70CBFF;
     padding: 50px;
@@ -30,7 +31,6 @@
     background-color: #212125;
     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
     border-top: 1px solid #70CBFF;
-    border-radius: 20px;
     justify-content: space-between;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -117,8 +117,7 @@ input[type=text]:focus {
     justify-content: center;
     text-align: center;
     background-color: #212125;
-    border-top: 0.75px solid #70CBFF;
-    border-radius: 20px;
+    border-bottom: 0.75px solid #70CBFF;
     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
     padding: 40px;
     height: 70px;

@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 import DonutChartContainer from './DonutChart/DonutChartContainer';
 import InfoCards from '../components/InfoCards/InfoCards'
+import Header from '../components/Header/Header'
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Luminous Arrangement</h1>
+      <Header />
       <InfoCards />
       <DonutChartContainer />
     </div>

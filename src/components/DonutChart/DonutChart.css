@@ -8,13 +8,13 @@
     background-color: #212125;
     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
     padding: 50px;
-    border-radius: 20px;
     border-top: 1px solid #70CBFF;
     margin-bottom: 50px;
 }
 
 .selection-container > h1 {
     font-size: 30px;
+    font-family: 'Mukta', sans-serif;
     text-transform: uppercase;
     color: #70CBFF;
     padding: 50px;

@@ -3,7 +3,7 @@
     justify-content: space-evenly;
     height: 410px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 800px;
 }
 
 .portfolio-item {
@@ -11,13 +11,17 @@
     flex-direction: column;
     text-align: center;
     background-color: #212125;
-    border-radius: 20px;
     width: 200px;
     height: 300px;
     border-top: 1px solid #70CBFF;
     padding: 15px;
     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    opacity: 60%;
     transition: .4s all;
+}
+
+.portfolio-item > h1 {
+  color: #e6e3e9;
 }
 
 .portfolio-item:not(:last-child) {
@@ -25,31 +29,57 @@
 }
 
 #bonds {
-  background-color: #F8D525;
+  border-top: 1px solid #F8D525
+}
+
+#bonds:hover {
+  opacity: 100%
 }
 
 #mid-cap {
-  background-color: #59A5D8;
+  border-top: 1px solid #59A5D8
+}
+
+#mid-cap:hover {
+  opacity: 100%
 }
 
 #large-cap {
-  background-color: #386FA4;
+  border-top: 1px solid #386FA4
+}
+
+#large-cap:hover {
+  opacity: 100%
 }
 
 #small-cap {
-  background-color: #133C55;
+  border-top: 1px solid #133C55
+}
+
+#small-cap:hover {
+  opacity: 100%
 }
 
 #foreign {
-  background-color: #84D2F6;
+  border-top: 1px solid #84D2F6
 }
 
-#item-current > p{
+#foreign:hover {
+  opacity: 100%
+}
+
+.item-current-title, .item-recommended-title {
   font-size: 15px;
+  color: #e6e3e9;
   margin: 0;
 }
 
-#item-recommended > p {
-  font-size: 15px;
-  margin: 0
+.item-current-amount, .item-recommended-amount {
+  font-size: 30px;
+  color: #e6e3e9;
+  margin: 0;
+}
+
+.item-recommended-amount {
+  color: lightgreen;
 }

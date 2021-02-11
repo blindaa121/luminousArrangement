@@ -20,12 +20,12 @@ const PortfolioItem = ({recommendation}) => {
     <div id={generateId(recommendation)} className="portfolio-item">
       <h1>{recommendation.type}</h1>
       <div id="item-current">
-        <p>Current amount</p>
-        <p>${recommendation.ogAmount}</p>
+        <p className="item-current-title">Current amount</p>
+        <p className="item-current-amount">${recommendation.ogAmount}</p>
       </div>
       <div id="item-recommended">
-        <p>Recommended amount</p>
-        <p>${recommendation.recAmount}</p>
+        <p className="item-recommended-title">Recommended amount</p>
+        <p className="item-recommended-amount">${recommendation.recAmount}</p>
       </div>
     </div>
   )

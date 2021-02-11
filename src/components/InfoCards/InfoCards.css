@@ -1,8 +1,9 @@
 .info-cards-container {
     display: flex;
+    font-family: 'Baloo 2', cursive;
     justify-content: space-evenly;
     height: 410px;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-bottom: 50px;
 }
 
