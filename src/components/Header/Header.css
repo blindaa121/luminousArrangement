@@ -32,3 +32,26 @@
 .header-icon:hover {
   opacity: 100%;
 }
+
+/* Mobile View */
+
+@media only screen and (max-device-width: 414px) {
+  .header {
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-left: 0;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'Mukta', sans-serif;
+    width: 100%;
+    z-index: 5;
+    background-color: white;
+}
+}

@@ -43,3 +43,36 @@
     border: 3px solid #70CBFF;
     opacity: 100%;
 }
+
+/* Mobile View */
+
+@media only screen and (max-device-width: 414px) {
+    .info-cards-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 750px !important;
+        font-family: 'Baloo 2', cursive;
+        justify-content: space-evenly;
+        height: 410px;
+        margin-top: 150px;
+        margin-bottom: 50px;
+    }
+
+    .info-card-content {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        background-color: #212125;
+        border-radius: 20px;
+        width: 300px;
+        height: 380px;
+        margin-top: 50px;
+        border-top: 0.75px solid #70CBFF;
+        padding: 15px;
+        box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+        transition: .4s all;
+        opacity: 65%;
+    }
+
+    
+}
