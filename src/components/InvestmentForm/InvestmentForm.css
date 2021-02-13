@@ -157,3 +157,105 @@ input[type=text]:focus {
 #current-percentage:not(:last-child) {
     margin-right: 50px;
 }
+
+/* Mobile View */
+@media only screen and (max-device-width: 414px) {
+    .investment-form-container > h1 {
+        font-size: 20px;
+        font-family: 'Mukta', sans-serif;
+        text-transform: uppercase;
+        color: #70CBFF;
+        padding: 15px 0px 15px 0px;
+        margin: 50px 0 50px 0;
+        background-color: white;
+        width: 100%;
+        border-top: 1px solid #70CBFF;
+        border-bottom: 1px solid #70CBFF;
+        text-align: center;
+        transition: .2s ease-in;
+    }
+
+    .current-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #212125;
+        border-bottom: 0.75px solid #70CBFF;
+        box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+        padding: 40px;
+        width: 60%;
+        height: 100%;
+    }
+
+    #current-percentage:not(:last-child) {
+    /* margin-right: 50px; */
+        margin-right: 0;
+    }
+    #current-percentage {
+        display: flex;
+        flex-direction: column;
+        opacity: 60%;
+        transition: .5s;
+    }
+
+    .investment-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #212125;
+        box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+        border-top: 1px solid #70CBFF;
+        justify-content: space-between;
+        margin-top: 50px;
+        margin-bottom: 0;
+        width: 70%;
+        padding: 20px;
+        height: 100%;
+        transition: .4s all;
+        opacity: 60%;
+    }
+
+    .investment-form > h1 {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #e6e3e9;
+        text-align: center;
+        /* margin-bottom: 0; */
+    }
+
+    .investment-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .investment-input-content:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .investment-input-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    input[type=text] {
+        width: 60%
+    }
+
+    #submit-btn {
+        width: 120px;
+        height: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 18px;
+        background: none;
+        border-radius: 2em;
+        color: white;
+        border: 2px solid white;
+        transition: .4s;
+    }
+}
