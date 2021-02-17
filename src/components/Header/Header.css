@@ -35,7 +35,7 @@
 
 /* Mobile View */
 
-@media only screen and (max-device-width: 414px) {
+@media only screen and (min-width: 375px) and (max-width: 768px)  {
   .header {
     left: 0;
     top: 0;

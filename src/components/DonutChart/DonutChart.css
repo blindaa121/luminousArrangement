@@ -92,7 +92,7 @@
 
 /* Mobile View */
 
-@media only screen and (max-device-width: 414px) {
+@media only screen and (min-width: 375px) and (max-width: 768px) {
     .selection-container {
         display: flex;
         flex-direction: column;
@@ -151,5 +151,24 @@
         color: white;
         opacity: 60%;
         transition: all 0.5s;
+    }
+}
+
+/* iPad View */
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .selection-container {
+        margin-top: 0px;
+    }
+
+    .selection-risk {
+        width: 75%;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        /* align-self: center; */
+        width: 100%
     }
 }
