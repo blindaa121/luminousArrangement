@@ -46,7 +46,7 @@
 
 /* Mobile View */
 
-@media only screen and (min-width: 375px) and (max-width: 768px) {
+@media only screen and (min-width: 375px) and (max-width: 767px) {
     .info-cards-container {
         display: flex;
         flex-direction: column;
@@ -77,14 +77,16 @@
 
 /* Mobile View - iPad */
 
-@media only screen and (min-width: 768px) and (max-width: 1300px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
     .info-cards-container {
         display: grid;
         grid-template-columns: 330px 330px;
-        grid-template-rows: 430px 430px;
+        /* grid-template-rows: 430px 430px; */
+        grid-row-gap: 2.2em;
+        grid-column-gap: 2.2em;
         height: 830px;
         margin: auto;
-        margin-top: 130px;
+        margin-top: 170px;
         margin-bottom: 50px;
         width: 60%;
     }
