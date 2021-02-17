@@ -7,7 +7,7 @@ const Portfolio = ({allocationMessages, recommendation}) => {
     return (
       <div className="portfolio-items-container">
         {recommendation.map((rec, idx) => {
-          return <PortfolioItem recommendation={rec} />
+          return <PortfolioItem key={idx} recommendation={rec} />
         })}
       </div>
     )

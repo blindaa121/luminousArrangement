@@ -5,7 +5,7 @@ export function calculateOptimizedAmount(userInput, riskPercentages) {
   const total = inputValues.reduce((a, b) => a + b);
 
   for (let i = 0; i < length; i++) {
-    const percentage = (riskPercentages[i] / 100).toFixed(2);
+    const percentage = (riskPercentages[i] / 100)
     const optimizedVal = (total * percentage).toFixed(2);
     optimizedAmounts.push(optimizedVal)
   }
