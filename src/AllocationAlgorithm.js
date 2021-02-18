@@ -54,27 +54,31 @@ function calculateAllocations(obj) {
       givesMoney[category] = obj[category];
     }
   }
-  
-  console.log(needsMoney);
-  console.log(givesMoney);
+ 
   const need = Object.keys(needsMoney).sort((a,b) => a - b);
   const give = Object.keys(givesMoney).sort((a,b) => a - b);
   let i = 0;
   let j = 0;
-  console.log(need);
-  console.log(give);
+
   while (i < give.length) {
     while (j < need.length) {
       needsMoney[need[j]] = Math.abs(needsMoney[need[j]]).toFixed(2);
-      
       if (Number(givesMoney[give[i]]) <= Number(needsMoney[need[j]])) {
+        // If the amount of tranferrable funds is less than the current needed amount
+        // then update the needed money, and move over to the next available funds that
+        // can give money.
         needsMoney[need[j]] = (needsMoney[need[j]] - givesMoney[give[i]]).toFixed(2);
         output.push(`Transfer $${givesMoney[give[i]]} from ${give[i]} to ${need[j]}`);
         i++;
         break;
       } else if (Number(needsMoney[need[j]]) == 0) {
+        // If the current fund account does not need anymore money, move on to the next
+        // account that needs money.
         j++;
       } else {
+        // When the current amount to give is greater than the current amount needed,
+        // we can cover the entire needed cost. Update the give amount with the difference
+        // between give and need, then move over to the next account that needs money.
         givesMoney[give[i]] = (givesMoney[give[i]] - needsMoney[need[j]]).toFixed(2);
         output.push(`Transfer $${needsMoney[need[j]]} from ${give[i]} to ${need[j]}`);
         j++
