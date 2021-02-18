@@ -1,4 +1,4 @@
-export function calculateOptimizedAmount(userInput, riskPercentages) {
+export function getRecommendedMessages(userInput, riskPercentages) {
   const optimizedAmounts = [];
   const inputValues = Object.values(userInput).map(num => Number(num))
   const length = inputValues.length;
@@ -87,6 +87,32 @@ function calculateAllocations(obj) {
   }
 
   return output
+}
+
+export function getRecommendedAmount(originalAmount, riskPercentages) {
+  const optimizedAmounts = {};
+  const inputValues = Object.values(originalAmount).map(num => Number(num))
+  const length = inputValues.length;
+  const total = inputValues.reduce((a, b) => a + b);
+
+  for (let i = 0; i < length; i++) {
+    const percentage = (riskPercentages[i] / 100).toFixed(2);
+    const optimizedVal = (total * percentage).toFixed(2);
+    switch (i) {
+      case 0:
+        optimizedAmounts['bonds'] = optimizedVal;
+      case 1:
+        optimizedAmounts['largeCap'] = optimizedVal;
+      case 2:
+        optimizedAmounts['midCap'] = optimizedVal;
+      case 3:
+        optimizedAmounts['smallCap'] = optimizedVal;
+      case 4:
+        optimizedAmounts['foreign'] = optimizedVal;
+    }
+  }
+
+  return optimizedAmounts;
 }
 
 

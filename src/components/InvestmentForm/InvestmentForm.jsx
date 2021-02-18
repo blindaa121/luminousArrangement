@@ -7,90 +7,85 @@ class InvestmentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bonds: '',
-      largeCap: '',
-      midCap: '',
-      smallCap: '',
-      foreign: ''
+      input: {
+        bonds: '',
+        largeCap: '',
+        midCap: '',
+        smallCap: '',
+        foreign: ''
+      },
+      validInput: true
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateField = this.updateField.bind(this);
-    this.getRecommendedAmount = this.getRecommendedAmount.bind(this);
     this.renderPortfolio = this.renderPortfolio.bind(this);
+    this.validateInput = this.validateInput.bind(this);
+  }
+
+  validateInput(dollarAmounts) {
+    const amounts = Object.values(dollarAmounts);
+    for (const amount of amounts) {
+      if (amount < 0) return false;
+    }
+
+    return true;
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { bonds, largeCap, midCap, smallCap, foreign } = this.props.selectedLevel;
     const riskPercentages = [bonds, largeCap, midCap, smallCap, foreign];
-    const recommendedAmount = this.getRecommendedAmount(this.state, riskPercentages);
-    const messages = moneyAlgorithm.calculateOptimizedAmount(this.state, riskPercentages);
-    const recommendationObj = {
-      bonds: {
-          type: 'Bonds', 
-          ogAmount: this.state.bonds, 
-          recAmount: recommendedAmount.bonds
-      },
-      largeCap: {
-          type: 'Large Cap', 
-          ogAmount: this.state.largeCap, 
-          recAmount: recommendedAmount.largeCap
-      },
-      midCap: {
-          type: 'Mid Cap', 
-          ogAmount: this.state.midCap, 
-          recAmount: recommendedAmount.midCap
-      },
-      smallCap: {
-          type: 'Small Cap', 
-          ogAmount: this.state.smallCap, 
-          recAmount: recommendedAmount.smallCap
-      },  
-      foreign: {
-          type: 'Foreign', 
-          ogAmount: this.state.foreign, 
-          recAmount: recommendedAmount.foreign
+    const isValid = this.validateInput(this.state.input);
+
+    if (isValid) {
+      const { input } = this.state
+      const recommendedAmount = moneyAlgorithm.getRecommendedAmount(input, riskPercentages);
+      const messages = moneyAlgorithm.getRecommendedMessages(input, riskPercentages);
+      const recommendationObj = {
+        bonds: {
+            type: 'Bonds', 
+            ogAmount: input.bonds, 
+            recAmount: recommendedAmount.bonds
+        },
+        largeCap: {
+            type: 'Large Cap', 
+            ogAmount: input.largeCap, 
+            recAmount: recommendedAmount.largeCap
+        },
+        midCap: {
+            type: 'Mid Cap', 
+            ogAmount: input.midCap, 
+            recAmount: recommendedAmount.midCap
+        },
+        smallCap: {
+            type: 'Small Cap', 
+            ogAmount: input.smallCap, 
+            recAmount: recommendedAmount.smallCap
+        },  
+        foreign: {
+            type: 'Foreign', 
+            ogAmount: input.foreign, 
+            recAmount: recommendedAmount.foreign
+        }
       }
+      this.props.receiveRecommendation(recommendationObj);
+      this.props.receiveMessages(messages);
+      this.setState({validInput: true})
+    } else {
+      this.setState({validInput: false})
     }
-    this.props.receiveRecommendation(recommendationObj);
-    this.props.receiveMessages(messages)
   }
 
   updateField(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      input: { ...this.state.input, [field]: e.currentTarget.value}
     });
   }
 
-  getRecommendedAmount(originalAmount, riskPercentages) {
-    const optimizedAmounts = { };
-    const inputValues = Object.values(originalAmount).map(num => Number(num))
-    const length = inputValues.length;
-    const total = inputValues.reduce((a, b) => a + b);
-
-    for (let i = 0; i < length; i++) {
-      const percentage = (riskPercentages[i] / 100).toFixed(2);
-      const optimizedVal = (total * percentage).toFixed(2);
-      switch (i) {
-        case 0:
-          optimizedAmounts['bonds'] = optimizedVal;
-        case 1:
-          optimizedAmounts['largeCap'] = optimizedVal;
-        case 2:
-          optimizedAmounts['midCap'] = optimizedVal;
-        case 3:
-          optimizedAmounts['smallCap'] = optimizedVal;
-        case 4:
-          optimizedAmounts['foreign'] = optimizedVal;
-      }
-    }
-
-    return optimizedAmounts;
-  }
 
   renderSelectedLevel() {
-    if (!this.props.selectedLevel) return null;
+    // if (!this.props.selectedLevel) return null;
     const { level, bonds, largeCap, midCap, smallCap, foreign } = this.props.selectedLevel;
       
     return (
@@ -145,6 +140,49 @@ class InvestmentForm extends React.Component {
     }
   }
 
+  setFormHeaderClass() {
+    if (!Object.keys(this.props.selectedLevel).length) {
+      return 'select-risk'
+    } else if (!this.state.validInput){
+      return 'invalid-input' 
+    } else {
+      return ''
+    }
+  }
+
+  renderFormHeader() {
+    if (!Object.keys(this.props.selectedLevel).length) {
+      return 'Please select a risk level before proceeding'
+    } else if (!this.state.validInput){
+      return 'Please enter positive amounts only'
+    } else {
+      return 'Please enter dollar amount'
+    }
+  }
+
+  renderButtonType() {
+    if (!Object.keys(this.props.selectedLevel).length) {
+      return (
+        <input
+          onClick={() => this.scrollDown()}
+          id="submit-btn"
+          type="submit"
+          value="SUBMIT"
+          disabled
+        />
+      )
+    } else {
+      return (
+        <input
+          onClick={() => this.scrollDown()}
+          id="submit-btn"
+          type="submit"
+          value="SUBMIT" 
+        />
+      )
+    }
+  }
+
   scrollDown() {
     setTimeout(() => {
       window.scrollTo({
@@ -160,13 +198,13 @@ class InvestmentForm extends React.Component {
         <h1>How would you like to allocate your money?</h1>
           {this.renderSelectedLevel()}
         <form onSubmit={this.handleSubmit} className="investment-form">
-          <h1>Please enter dollar amount for each category</h1>
+          <h1 className={this.setFormHeaderClass()}>{this.renderFormHeader()}</h1>
           <div className="investment-input">
             <div className="investment-input-content">
               <label className="investment-form-title">Bonds
               <br/>
                 <input
-                  type="text"
+                  type="number"
                   onChange={this.updateField('bonds')}
                   value={this.state.bonds}
                   placeholder="$0"
@@ -177,7 +215,7 @@ class InvestmentForm extends React.Component {
               <label className="investment-form-title">Large Cap
               <br/>
                 <input
-                  type="text"
+                  type="number"
                   onChange={this.updateField('largeCap')}
                   value={this.state.largeCap}
                   placeholder="$0"
@@ -188,7 +226,7 @@ class InvestmentForm extends React.Component {
               <label className="investment-form-title">Mid Cap
               <br/>
                 <input
-                  type="text"
+                  type="number"
                   onChange={this.updateField('midCap')}
                   value={this.state.midCap}
                   placeholder="$0"
@@ -199,7 +237,7 @@ class InvestmentForm extends React.Component {
               <label className="investment-form-title">Small Cap
               <br/>
                 <input
-                  type="text"
+                  type="number"
                   onChange={this.updateField('smallCap')}
                   value={this.state.smallCap}
                   placeholder="$0"
@@ -210,7 +248,7 @@ class InvestmentForm extends React.Component {
               <label className="investment-form-title">Foreign
               <br/>
                 <input
-                  type="text"
+                  type="number"
                   onChange={this.updateField('foreign')}
                   value={this.state.foreign}
                   placeholder="$0"
@@ -218,7 +256,7 @@ class InvestmentForm extends React.Component {
               </label>
             </div>
           </div>
-          <input onClick={() => this.scrollDown()} id="submit-btn" type="submit" value="SUBMIT"/>
+          {this.renderButtonType()}
         </form>
         <h1 className="portfolio-header">{this.renderPortfolioHeader()}</h1>
         {this.renderPortfolio()}
