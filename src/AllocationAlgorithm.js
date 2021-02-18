@@ -1,4 +1,4 @@
-export function calculateOptimizedAmount(userInput, riskPercentages) {
+function calculateOptimizedAmount(userInput, riskPercentages) {
   const optimizedAmounts = [];
   const inputValues = Object.values(userInput).map(num => Number(num))
   const length = inputValues.length;
@@ -47,7 +47,6 @@ function calculateAllocations(obj) {
   const needsMoney = {};
   const givesMoney = {};
   const output = [];
-
   for (const category in obj) {
     if (obj[category] < 0) {
       needsMoney[category] = obj[category];
@@ -55,21 +54,26 @@ function calculateAllocations(obj) {
       givesMoney[category] = obj[category];
     }
   }
-
-  const need = Object.keys(needsMoney);
-  const give = Object.keys(givesMoney);
+  
+  console.log(needsMoney);
+  console.log(givesMoney);
+  const need = Object.keys(needsMoney).sort((a,b) => a - b);
+  const give = Object.keys(givesMoney).sort((a,b) => a - b);
   let i = 0;
   let j = 0;
-
+  console.log(need);
+  console.log(give);
   while (i < give.length) {
     while (j < need.length) {
       needsMoney[need[j]] = Math.abs(needsMoney[need[j]]).toFixed(2);
-
+      
       if (Number(givesMoney[give[i]]) <= Number(needsMoney[need[j]])) {
         needsMoney[need[j]] = (needsMoney[need[j]] - givesMoney[give[i]]).toFixed(2);
         output.push(`Transfer $${givesMoney[give[i]]} from ${give[i]} to ${need[j]}`);
         i++;
         break;
+      } else if (Number(needsMoney[need[j]]) == 0) {
+        j++;
       } else {
         givesMoney[give[i]] = (givesMoney[give[i]] - needsMoney[need[j]]).toFixed(2);
         output.push(`Transfer $${needsMoney[need[j]]} from ${give[i]} to ${need[j]}`);
@@ -80,4 +84,7 @@ function calculateAllocations(obj) {
 
   return output
 }
+userInput = [300,300,300,0,300]
+riskPercentages = [35,25,5,5,30]
+console.log(calculateOptimizedAmount(userInput, riskPercentages))
 
