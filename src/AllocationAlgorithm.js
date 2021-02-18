@@ -1,4 +1,4 @@
-function calculateOptimizedAmount(userInput, riskPercentages) {
+export function calculateOptimizedAmount(userInput, riskPercentages) {
   const optimizedAmounts = [];
   const inputValues = Object.values(userInput).map(num => Number(num))
   const length = inputValues.length;
@@ -88,7 +88,5 @@ function calculateAllocations(obj) {
 
   return output
 }
-userInput = [300,300,300,0,300]
-riskPercentages = [35,25,5,5,30]
-console.log(calculateOptimizedAmount(userInput, riskPercentages))
+
 
